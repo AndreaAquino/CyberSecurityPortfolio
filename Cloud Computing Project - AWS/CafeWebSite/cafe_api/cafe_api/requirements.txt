@@ -1,0 +1,3 @@
+# Core dependencies
+flask
+mysql-connector-python
