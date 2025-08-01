@@ -44,7 +44,7 @@ The attack led to the **exfiltration of sensitive customer data and intellectual
 
 A Likelihood × Consequence model was used to score each scenario both **before** and **after** the implementation of control recommendations.
 
-> ![Risk Matrix Placeholder](./images/risk_matrix_datacom.png)  
+> ![Risk Matrix Placeholder](./images/RiskAssesmentCase1.png)  
 
 #### 1.4 Frameworks & Tools Used
 
