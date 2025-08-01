@@ -16,8 +16,8 @@ Each assessment includes:
 ###  1. Tech Company Client – APT34 Risk Assessment  
 **Case Study:** DATACOM | The Forage Simulation
 
-As part of a simulated consultancy engagement with **Datacom**, I completed a comprehensive risk assessment following a targeted attack by **APT34**, a state-sponsored Advanced Persistent Threat group. I assumed the role of a cybersecurity consultant tasked with identifying risk exposures and advising on mitigation strategies after the compromise of a major tech client's internal systems.
-
+As part of a simulated consultancy engagement with **Datacom Job Simulation**, I completed a comprehensive risk assessment following a targeted attack by **APT34**, a state-sponsored Advanced Persistent Threat group. I assumed the role of a cybersecurity consultant tasked with identifying risk exposures and advising on mitigation strategies after the compromise of a major tech client's internal systems.
+While the answer sample indicate Risk on assets in a general level, I decided, based on the APT 
 The attack led to the **exfiltration of sensitive customer data and intellectual property**, prompting an urgent review of the client’s internal security posture.
 
 ---
@@ -48,10 +48,11 @@ A Likelihood × Consequence model was used to score each scenario both **before*
 
 #### 1.4 Frameworks & Tools Used
 
-- **NIST SP 800-30** – Risk Assessment Process  
-- **ISO/IEC 27005** – Risk management guidelines  
-- **Essential Eight** – Mitigation baseline  
-- **MITRE ATT&CK** – Threat modeling reference
+- **NIST SP 800-30** – [Guide for Conducting
+Risk Assessments](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-30r1.pdf)
+- **CISA SAFECOM** – [Guide to Getting Started with a Cybersecurity Risk Assessment](https://www.cisa.gov/sites/default/files/video/22_1201_safecom_guide_to_cybersecurity_risk_assessment_508-r1.pdf)
+- **Essential Eight** – [Assesment Process Guide](https://www.cyber.gov.au/resources-business-and-government/essential-cybersecurity/essential-eight/essential-eight-assessment-process-guide)  
+- **MITRE ATT&CK** – [TTP and mitigations](https://attack.mitre.org/)
 
 #### 1.5. Deliverables
 
@@ -65,9 +66,9 @@ A Likelihood × Consequence model was used to score each scenario both **before*
 
 #### 1.6. Highlights
 
-- Applied threat intelligence on APT34 to real-world enterprise context  
+- Applied threat intelligence on APT34 to real-world enterprise context
 - Mapped attacker TTPs using MITRE ATT&CK  
-- Designed a structured and auditable risk matrix  
+- Designed a structured and auditable risk matrix for two critical IT infraestructure assets
 - Aligned control recommendations with industry frameworks  
 - Delivered a traceable and actionable assessment report
 ---
