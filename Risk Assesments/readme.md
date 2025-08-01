@@ -55,7 +55,8 @@ A Likelihood × Consequence model was used to score each scenario both **before*
 
 #### 1.5. Deliverables
 
-- 📄 [Risk Assessment Spreadsheet (.xlsx)](./Risk%20Assessment%20DataCom-Case%20Study.xlsx)  
+- 📄 [Risk Assessment Spreadsheet (.xlsx)](./Docs/Risk%20Assessment%20DataCom-Case%20Study.xlsx)
+  
   Includes:
   - Defined threat scenarios
   - Likelihood and impact ratings
