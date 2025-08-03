@@ -14,11 +14,12 @@ Each assessment includes:
 ## 📁 Assessment Scenarios
 
 ###  1. Tech Company Client – APT34 Risk Assessment  
-**Case Study:** DATACOM | The Forage Simulation
+**Case Study:** [DATACOM | The Forage Simulation](https://www.theforage.com/simulations/datacom/cybersecurity-zm6d)
 
 As part of a simulated consultancy engagement with **Datacom Job Simulation**, I completed a comprehensive risk assessment following a targeted attack by **APT34**, a state-sponsored Advanced Persistent Threat group. I assumed the role of a cybersecurity consultant tasked with identifying risk exposures and advising on mitigation strategies after the compromise of a major tech client's internal systems.
-While the answer sample indicate Risk on assets in a general level, I decided, based on the APT 
 The attack led to the **exfiltration of sensitive customer data and intellectual property**, prompting an urgent review of the client’s internal security posture.
+
+While the sample answer presents risks at a general asset level, I chose to tailor my assessment specifically to the tactics, techniques, and procedures (TTPs) used by the APT34 threat group, based on the nature of the cyber incident experienced by the client.
 
 ---
 
