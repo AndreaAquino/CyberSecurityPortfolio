@@ -6,14 +6,14 @@ Welcome to my **Cybersecurity Portfolio** — a curated collection of practical 
 
 ### 1. [Risk Assessments](./Risk%20Assesments)
 Realistic threat-based assessments using structured methodologies, including:
-- Threat actor profiling (e.g., APT34)
+- Threat actor profiling
 - Likelihood × Consequence risk matrix
 - Control recommendations mapped to security frameworks  
 
 ### 2. [Incident Analysis Reports](./Incident%20Analysis%20Reports)
 Cyber incident deep-dives and root cause analysis, showcasing:
 - TTP mapping using MITRE ATT&CK
-- Data breach narratives (e.g., Medibank 2022)
+- Data breach analysis
 - Lessons learned & mitigation strategies  
 
 ### 3. [Cloud Computing Project](./Cloud%20Computing%20Project%20-%20AWS/CafeWebSite)
@@ -23,8 +23,6 @@ Demonstration of cloud architecture and basic security configurations:
 
 ### 4. [Security Policies and Procedures](./Security%20Policies%20and%20Procedures)
 Sample policy documentation for:
-- Acceptable Use
-- Remote Access
 - Incident Response
 - Data Classification  
 
