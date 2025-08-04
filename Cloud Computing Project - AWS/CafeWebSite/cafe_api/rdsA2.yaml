@@ -1,0 +1,80 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Create DB Private Subnet, RDS Subnet Group, RDS Security Group, and
+  an RDS MariaDB instance
+
+Parameters:
+  NetworkStackName:
+    Description: >-
+      Name of an active CloudFormation stack that contains the networking
+      resources, such as the VPC and subnet that will be used in this stack.
+    Type: String
+    Default: networkA2
+
+Resources:
+
+  # Create Security Group for RDS
+  CafeNSG:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Security group for the Cafe RDS instance
+      VpcId:
+        Fn::ImportValue:
+         !Sub ${NetworkStackName}-VPCId 
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 3306
+          ToPort: 3306
+          CidrIp: 0.0.0.0/0 # You can adjust this to be more restrictive
+      Tags:
+        - Key: Name
+          Value: CafeNSG
+
+  # Private Subnet for Database
+  DBPrivSub:
+    Type: AWS::EC2::Subnet
+    Properties:
+      VpcId: 
+        Fn::ImportValue:
+         !Sub ${NetworkStackName}-VPCId
+      CidrBlock: 10.0.5.0/24
+      AvailabilityZone: !Select [0, !GetAZs 'us-east-1']
+      Tags:
+        - Key: Name
+          Value: DBPrivSub
+
+
+  # RDS Instance
+  CafeDB:
+    Type: AWS::RDS::DBInstance
+    Properties:
+      DBInstanceIdentifier: cafe-db
+      AllocatedStorage: '20'
+      DBInstanceClass: db.t3.micro
+      Engine: mariadb
+      MasterUsername: admin
+      MasterUserPassword: Re:Start!9
+      VPCSecurityGroups:
+        - !Ref CafeNSG
+      StorageType: gp2
+      MultiAZ: false
+      PubliclyAccessible: false
+      Tags:
+        - Key: Name
+          Value: CafeDB
+
+Outputs:
+  DBPrivSubId:
+    Description: Database Private Subnet ID
+    Value: !Ref DBPrivSub
+
+  CafeNSGId:
+    Description: Security Group ID
+    Value: !Ref CafeNSG
+
+  CafeDBEndpoint:
+    Description: The endpoint of the RDS instance
+    Value: !GetAtt CafeDB.Endpoint.Address
+
+  CafeDBArn:
+    Description: The ARN of the RDS instance
+    Value: !GetAtt CafeDB.Arn

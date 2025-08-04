@@ -1,0 +1,211 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: VPC with public and private subnets in two availability zones, with NAT gateways and an Internet gateway, including a database subnet with restricted access.
+
+Resources:
+  # Create VPC
+  CafeVPC:
+    Type: 'AWS::EC2::VPC'
+    Properties:
+      CidrBlock: '10.0.0.0/16'
+      EnableDnsSupport: true
+      EnableDnsHostnames: true
+      Tags:
+        - Key: Name
+          Value: CafeVPC
+
+  # Create Internet Gateway
+  CafeIGW:
+    Type: 'AWS::EC2::InternetGateway'
+    Properties:
+      Tags:
+        - Key: Name
+          Value: CafeIGW
+
+  AttachGateway:
+    Type: 'AWS::EC2::VPCGatewayAttachment'
+    Properties:
+      VpcId: !Ref CafeVPC
+      InternetGatewayId: !Ref CafeIGW
+
+  # Public Subnet in AZ1
+  PubSubAZ1:
+    Type: 'AWS::EC2::Subnet'
+    Properties:
+      VpcId: !Ref CafeVPC
+      CidrBlock: '10.0.2.0/24'
+      MapPublicIpOnLaunch: true
+      AvailabilityZone: !Select [0, !GetAZs '']
+      Tags:
+        - Key: Name
+          Value: PubSubAZ1
+
+  # Private Subnet in AZ1
+  PrivSubAZ1:
+    Type: 'AWS::EC2::Subnet'
+    Properties:
+      VpcId: !Ref CafeVPC
+      CidrBlock: '10.0.1.0/24'
+      AvailabilityZone: !Select [0, !GetAZs '']
+      Tags:
+        - Key: Name
+          Value: PrivSubAZ1
+
+  # Public Subnet in AZ2
+  PubSubAZ2:
+    Type: 'AWS::EC2::Subnet'
+    Properties:
+      VpcId: !Ref CafeVPC
+      CidrBlock: '10.0.4.0/24'
+      MapPublicIpOnLaunch: true
+      AvailabilityZone: !Select [1, !GetAZs '']
+      Tags:
+        - Key: Name
+          Value: PubSubAZ2
+
+  # Private Subnet in AZ2
+  PrivSubAZ2:
+    Type: 'AWS::EC2::Subnet'
+    Properties:
+      VpcId: !Ref CafeVPC
+      CidrBlock: '10.0.3.0/24'
+      AvailabilityZone: !Select [1, !GetAZs '']
+      Tags:
+        - Key: Name
+          Value: PrivSubAZ2
+
+
+  # Public Route Table
+  PublicRouteTable:
+    Type: 'AWS::EC2::RouteTable'
+    Properties:
+      VpcId: !Ref CafeVPC
+      Tags:
+        - Key: Name
+          Value: PublicRouteTable
+
+  # Public Route
+  PublicRoute:
+    Type: 'AWS::EC2::Route'
+    Properties:
+      RouteTableId: !Ref PublicRouteTable
+      DestinationCidrBlock: '0.0.0.0/0'
+      GatewayId: !Ref CafeIGW
+
+  # Associate Public Subnets with Route Table
+  PubSubnetRouteTableAssociationAZ1:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties:
+      SubnetId: !Ref PubSubAZ1
+      RouteTableId: !Ref PublicRouteTable
+
+  PubSubnetRouteTableAssociationAZ2:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties:
+      SubnetId: !Ref PubSubAZ2
+      RouteTableId: !Ref PublicRouteTable
+
+  # EIP for NAT Gateway in AZ1
+  NatEIPAZ1:
+    Type: 'AWS::EC2::EIP'
+    Properties:
+      Domain: vpc
+
+  # NAT Gateway in AZ1
+  NatGatewayAZ1:
+    Type: 'AWS::EC2::NatGateway'
+    Properties:
+      SubnetId: !Ref PubSubAZ1
+      AllocationId: !GetAtt NatEIPAZ1.AllocationId
+      Tags:
+        - Key: Name
+          Value: NatGatewayAZ1
+
+  # EIP for NAT Gateway in AZ2
+  NatEIPAZ2:
+    Type: 'AWS::EC2::EIP'
+    Properties:
+      Domain: vpc
+
+  # NAT Gateway in AZ2
+  NatGatewayAZ2:
+    Type: 'AWS::EC2::NatGateway'
+    Properties:
+      SubnetId: !Ref PubSubAZ2
+      AllocationId: !GetAtt NatEIPAZ2.AllocationId
+      Tags:
+        - Key: Name
+          Value: NatGatewayAZ2
+
+  # Private Route Table for AZ1
+  PrivateRouteTableAZ1:
+    Type: 'AWS::EC2::RouteTable'
+    Properties:
+      VpcId: !Ref CafeVPC
+      Tags:
+        - Key: Name
+          Value: PrivateRouteTableAZ1
+
+  # Private Route for AZ1
+  PrivateRouteAZ1:
+    Type: 'AWS::EC2::Route'
+    Properties:
+      RouteTableId: !Ref PrivateRouteTableAZ1
+      DestinationCidrBlock: '0.0.0.0/0'
+      NatGatewayId: !Ref NatGatewayAZ1
+
+  # Associate Private Subnet with Route Table in AZ1
+  PrivSubnetRouteTableAssociationAZ1:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties:
+      SubnetId: !Ref PrivSubAZ1
+      RouteTableId: !Ref PrivateRouteTableAZ1
+
+  # Private Route Table for AZ2
+  PrivateRouteTableAZ2:
+    Type: 'AWS::EC2::RouteTable'
+    Properties:
+      VpcId: !Ref CafeVPC
+      Tags:
+        - Key: Name
+          Value: PrivateRouteTableAZ2
+
+  # Private Route for AZ2
+  PrivateRouteAZ2:
+    Type: 'AWS::EC2::Route'
+    Properties:
+      RouteTableId: !Ref PrivateRouteTableAZ2
+      DestinationCidrBlock: '0.0.0.0/0'
+      NatGatewayId: !Ref NatGatewayAZ2
+
+  # Associate Private Subnet with Route Table in AZ2
+  PrivSubnetRouteTableAssociationAZ2:
+    Type: 'AWS::EC2::SubnetRouteTableAssociation'
+    Properties:
+      SubnetId: !Ref PrivSubAZ2
+      RouteTableId: !Ref PrivateRouteTableAZ2
+
+
+
+
+
+
+Outputs:
+  VPCId:
+    Description: VPC ID
+    Value: !Ref CafeVPC
+
+  PubSubAZ1Id:
+    Description: Public Subnet ID in AZ1
+    Value: !Ref PubSubAZ1
+
+  PrivSubAZ1Id:
+    Description: Private Subnet ID in AZ1
+    Value: !Ref PrivSubAZ1
+
+  PubSubAZ2Id:
+    Description: Public Subnet ID in AZ2
+    Value: !Ref PubSubAZ2
+
+  PrivSubAZ2Id:
+    Description: Private Subnet ID in AZ2
+    Value: !Ref PrivSubAZ2
