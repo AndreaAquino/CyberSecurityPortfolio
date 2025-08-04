@@ -49,7 +49,7 @@ This is a simulated project for educational and portfolio purposes only. It refl
 
 ## Architecture Diagram
 
-![Architecture Diagram](./images/CafeSite-CloudInfra.png)
+![Architecture Diagram](./cafe_api/CafeSite-CloudInfra.png)
 
 ---
 
