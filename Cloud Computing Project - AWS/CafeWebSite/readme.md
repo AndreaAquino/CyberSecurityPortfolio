@@ -7,7 +7,6 @@ It follows AWS best practices, including multi-AZ availability, auto scaling, an
 ## Disclamer
 This is a simulated project for educational and portfolio purposes only. It reflects secure cloud architecture practices but should not be reused in production environments without security validation.
 **Default usernames and passwords must never be used** in real environments. Always follow best practices for credential management, avoid hardcoding secrets, and never share your S3 bucket URLs or access keys publicly.
----
 
 ##  Architecture Overview
 
@@ -42,7 +41,7 @@ This is a simulated project for educational and portfolio purposes only. It refl
 
 ## Files in This Portfolio Entry
 
-- [`cafe-vpc.yaml`](./cafe-vpc.yaml): CloudFormation template provisioning VPC, subnets, IGWs, NAT gateways, and route tables.
+- [cafe_api](./cafe_api/): CloudFormation template provisioning VPC, subnets, IGWs, NAT gateways, and route tables.
 - `architecture-diagram.png`: Visual representation of the deployed architecture.
 - `CafeApp-Details.pdf`: Full documentation of the project, use for your reference only*
 
@@ -50,12 +49,12 @@ This is a simulated project for educational and portfolio purposes only. It refl
 
 ## Architecture Diagram
 
-![Architecture Diagram](./architecture-diagram.png)
+![Architecture Diagram](./images/CafeSite-CloudInfra.png)
 
 ---
 
 ## Acknowledgements
-YouTube: r2schools (2023). Creating and connecting to MariaDB RDS in AWS.
-AWS Documentation for EC2, RDS, Auto Scaling Groups.
-ChatGPT was used for YAML refinement and troubleshooting support (AI-assisted but reviewed manually).
-AWS Academy – Lab-based project developed during the AWS Academy Cloud Architecting course.
+- YouTube: r2schools (2023). Creating and connecting to MariaDB RDS in AWS.
+- AWS Documentation for EC2, RDS, Auto Scaling Groups.
+- ChatGPT was used for YAML refinement and troubleshooting support (AI-assisted but reviewed manually).
+- AWS Academy – Lab-based project developed during the AWS Academy Cloud Architecting course.
