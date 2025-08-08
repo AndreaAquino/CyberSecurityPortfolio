@@ -1,26 +1,27 @@
-# Security Policies and Procedures - Cyberportfolio
+## Security Policies and Procedures - Cyberportfolio
 
 Welcome to the **Security Policies and Procedures** section of my Cyberportfolio. 
 This folder contains a collection of security policy documents, procedural guidelines, and related materials organized by real-world-inspired case scenarios.
 
 ---
 
-## Overview
+### Overview
 
 This subfolder is designed to showcase my ability to develop, analyze, and apply cybersecurity policies and procedures in various practical contexts. 
 Each case scenario highlights a specific security challenge or environment, along with tailored policy documents and procedural steps.
 Since there were Reports created as part of a teamwork and every part was reviewed by every team member, I highlighted the specific jobs I was responsable for
 ---
 
-## Information Security Report Summary
+### Information Security Report Summary
 
-This Information Security Report provides a comprehensive framework for securing the hospital’s information assets, covering policies, procedures, and control mechanisms aligned with international standards such as ISO/IEC 27001, and regulatory requirements including HIPAA and the Australian Privacy Act. The report addresses various aspects of information security from governance to technical controls, ensuring confidentiality, integrity, and availability of sensitive healthcare data. I was specifically responsible for developing and implementing **Section 5.6 – Network Communications Security** and **Section 5.7 – Information Security Incident Management**, which are critical components in safeguarding the hospital's digital infrastructure and ensuring an effective response to security incidents.
+This Information Security Report provides a comprehensive framework for securing the hospital’s information assets, covering policies, procedures, and control mechanisms aligned with international standards such as ISO/IEC 27001, and regulatory requirements including HIPAA and the Australian Privacy Act. The report addresses various aspects of information security from governance to technical controls, ensuring confidentiality, integrity, and availability of sensitive healthcare data. 
+I was specifically responsible for developing and implementing **Section 5.6 – Network Communications Security** and **Section 5.7 – Information Security Incident Management**, which are critical components in safeguarding the backbone digital infrastructure and ensuring an effective response to security incidents.
 
 ---
 
-## Case Scenario 1: Healthcare Organisation – A Hospital
+### Case Scenario 1: Healthcare Organisation – A Hospital
 
-### 5.6 Network Communications Security
+#### 5.6 Network Communications Security
 
 The hospital’s network infrastructure is critical for supporting clinical systems, telemedicine, patient record access, and healthcare collaboration networks. Given the network’s role as the backbone of healthcare operations, the security policies emphasize:
 
@@ -37,7 +38,7 @@ The hospital’s network infrastructure is critical for supporting clinical syst
   - **Email Security:** Implementation of secure email gateways, encryption, and authentication mechanisms (SPF, DKIM, DMARC).  
   - **Audit & Review:** Regular internal and external audits to ensure ongoing compliance and security posture.
 
-### 5.7 Information Security Incident Management
+#### 5.7 Information Security Incident Management
 
 The policy framework defines clear processes to detect, report, assess, and respond to security incidents, supporting the hospital’s resilience and regulatory compliance:
 
@@ -49,7 +50,7 @@ The policy framework defines clear processes to detect, report, assess, and resp
 
 ---
 
-## How to Use This Folder
+### How to Use This Folder
 
 1. Select a case scenario folder to explore the policies and procedures designed for that context.
 2. Review the policies to understand security objectives and controls.
@@ -58,7 +59,7 @@ The policy framework defines clear processes to detect, report, assess, and resp
 
 ---
 
-## Technologies & Frameworks Referenced
+### Technologies & Frameworks Referenced
 
 - NIST Cybersecurity Framework (CSF)  
 - ISO/IEC 27001/27002 Standards  
@@ -68,7 +69,7 @@ The policy framework defines clear processes to detect, report, assess, and resp
 
 ---
 
-## Contact & Feedback
+### Contact & Feedback
 
 If you have any questions or would like to discuss any of the policies or scenarios, feel free to reach out!
 
