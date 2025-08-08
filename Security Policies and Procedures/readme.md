@@ -74,6 +74,5 @@ The policy framework defines clear processes to detect, report, assess, and resp
 If you have any questions or would like to discuss any of the policies or scenarios, feel free to reach out!
 
 ---
-
-*Last updated: [Insert Date]*  
+ 
 *Author: Andrea Aquino*
