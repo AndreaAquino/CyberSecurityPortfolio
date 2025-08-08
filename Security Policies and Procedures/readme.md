@@ -1,4 +1,4 @@
-## Security Policies and Procedures - Cyberportfolio
+## 📁 Security Policies and Procedures - Cyberportfolio
 
 Welcome to the **Security Policies and Procedures** section of my Cyberportfolio. 
 This folder contains a collection of security policy documents, procedural guidelines, and related materials organized by real-world-inspired case scenarios.
@@ -9,8 +9,7 @@ This folder contains a collection of security policy documents, procedural guide
 
 This subfolder is designed to showcase my ability to develop, analyze, and apply cybersecurity policies and procedures in various practical contexts. 
 Each case scenario highlights a specific security challenge or environment, along with tailored policy documents and procedural steps.
-Since there were Reports created as part of a teamwork and every part was reviewed by every team member, I highlighted the specific jobs I was responsable for
----
+Since there were Reports created as part of a teamwork and every part was reviewed by every team member, I highlighted the specific jobs I was responsable for.
 
 ### Information Security Report Summary
 
@@ -23,6 +22,7 @@ I was specifically responsible for developing and implementing **Section 5.6 –
 
 #### 5.6 Network Communications Security
 
+- 📄 [Information Security Policy Case 1 - NSW Hospital](./docs/SecurityPolicy_HealthCentreOrg.pdf)
 The hospital’s network infrastructure is critical for supporting clinical systems, telemedicine, patient record access, and healthcare collaboration networks. Given the network’s role as the backbone of healthcare operations, the security policies emphasize:
 
 - **Audience:** Applies to all staff including healthcare professionals, management, temporary staff, and contractors.
@@ -37,6 +37,8 @@ The hospital’s network infrastructure is critical for supporting clinical syst
   - **Intrusion Detection/Prevention Systems (IDS/IPS):** Signature and behavior-based detection to identify and respond to threats.  
   - **Email Security:** Implementation of secure email gateways, encryption, and authentication mechanisms (SPF, DKIM, DMARC).  
   - **Audit & Review:** Regular internal and external audits to ensure ongoing compliance and security posture.
+
+> ![Network Diagram Proposed](./images/Case1Network.png)
 
 #### 5.7 Information Security Incident Management
 
@@ -69,10 +71,6 @@ The policy framework defines clear processes to detect, report, assess, and resp
 
 ---
 
-### Contact & Feedback
+💬 **Feedback or questions?**
+Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/ilce-andrea-aquino-de-hoge-73463593) or submit in this repo.
 
-If you have any questions or would like to discuss any of the policies or scenarios, feel free to reach out!
-
----
- 
-*Author: Andrea Aquino*
