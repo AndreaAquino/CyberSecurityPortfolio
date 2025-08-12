@@ -18,9 +18,9 @@ I was specifically responsible for developing and implementing **Section 5.6 –
 
 ---
 
-### Case Scenario 1: Healthcare Organisation – A Hospital
+#### Case Scenario 1: Healthcare Organisation – A Hospital
 
-#### 5.6 Network Communications Security
+##### 5.6 Network Communications Security
 
 - 📄 [Information Security Policy Case 1 - NSW Hospital](./docs/SecurityPolicy_HealthCentreOrg.pdf)
 The hospital’s network infrastructure is critical for supporting clinical systems, telemedicine, patient record access, and healthcare collaboration networks. Given the network’s role as the backbone of healthcare operations, the security policies emphasize:
@@ -40,7 +40,7 @@ The hospital’s network infrastructure is critical for supporting clinical syst
 
 > ![Network Diagram Proposed](./images/Case1Network.png)
 
-#### 5.7 Information Security Incident Management
+##### 5.7 Information Security Incident Management
 
 The policy framework defines clear processes to detect, report, assess, and respond to security incidents, supporting the hospital’s resilience and regulatory compliance:
 
