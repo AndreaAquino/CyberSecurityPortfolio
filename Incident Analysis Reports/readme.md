@@ -10,7 +10,7 @@ Under **Security Recommendations**, I map my proposed improvements against **loc
 
 ### Case Scenario 1: Medibank 2022 Data Breach
 
-📄 [Cyber Incident Review – Medibank 2022](./documents/CyberIncReview_Medibank2022)
+📄 [Cyber Incident Review – Medibank 2022](./documents/CyberIncReview_Medibank2022.pdf)
 
 **Industry:** Healthcare / Insurance  
 **Location:** Australia  
