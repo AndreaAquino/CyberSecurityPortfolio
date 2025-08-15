@@ -59,7 +59,7 @@ Below is the mapping of Medibank’s identified gaps to the **Australian Essenti
 ---
 
 ##### Observations
-- **Third-Party Risk**: Weak credential handling by a service provider directly contributed to the breach. ISO 27001 A.5.19 and A.5.20 require supplier agreements and monitoring to enforce security obligations.  
+- **Third-Party Risk**: Weak credential handling by a service provider, with elevetated priviledge functions, directly contributed to the breach. ISO 27001 A.5.19 and A.5.20 require supplier agreements and monitoring to enforce security obligations.  
 - **Security Culture**: ISO 27001 A.6.3 (Awareness, Education and Training) aligns with the recommendation to foster a strong security culture to mitigate human error.  
 - **Monitoring and Response**: Ignored EDR alerts indicate a maturity gap in detection and response. ISO 27001 A.8.16 (Monitoring Activities) and A.5.23 (Information Security Event Reporting) address this.  
 - **Zero Trust Approach**: While not explicitly in E8, Zero Trust principles align with ISO 27001's least privilege and network segmentation controls (A.8.20, A.8.21).  
@@ -68,10 +68,9 @@ Below is the mapping of Medibank’s identified gaps to the **Australian Essenti
 
 
 #### Lessons Learned
-- **Third-party risk must be treated as internal risk** — suppliers should meet or exceed your organisation’s security posture.  
-- **EDR is only as strong as the people responding to it** — tools without timely human action are ineffective.  
-- **Zero Trust isn’t just a buzzword** — assume breach and verify continuously.  
-- **Security culture** is as important as technical controls — policy, awareness, and behaviour form the foundation.
+- **Third-party risk must be treated as internal risk** : Third parties are part of every business, even in something as simple as selling burgers. You need to make sure your providers meet at least a minimal standard of control: the bread isn’t expired, the meat is safe to eat, and, most importantly, if the third party is the cook, they are trained to deliver a high-standard product. Your reputation depends on it. The same principle applies in cyber. Suppliers providing critical services and managing sensitive data must meet or exceed the organisation’s security posture, and especially when they are part of daily business operations, they must be treated as part of the organisation itself under the same strict and regulated standard
+- **Zero Trust isn’t just a pretty word** — Do not trust, always verify is the phrase, and yes, some times it could be annoyed to validate your identity multiple times but assume breach and verify continuously.  
+- **Security culture** : is as important as technical controls,policy, awareness, and behaviour form the foundation, organisations must transmit not just restrict or adopt a fearing approach, people working whitin and around the business must understand how their functions, responsabilities and the secure culture are aligned eachother.
 
 ---
 ### Case Scenario 2 ... soon
