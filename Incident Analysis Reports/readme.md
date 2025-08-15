@@ -78,3 +78,5 @@ Below is the mapping of Medibank’s identified gaps to the **Australian Essenti
 ### Case Scenario 2 ... soon
 
 ---
+💬 **Feedback or questions?**
+Feel free to connect with me on [LinkedIn](https://www.linkedin.com/in/ilce-andrea-aquino-de-hoge-73463593) or submit in this repo.
