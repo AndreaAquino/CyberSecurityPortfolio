@@ -34,16 +34,16 @@ H&C suffered a supply chain compromise when a developer integrated malicious cod
 | 🛡️ **Defense Evasion** | T1027.010 Command Obfuscation | AI-generated obfuscation | Base64: `var data=[...]` |
 | 🛡️ **Defense Evasion** | T1036.005 Masquerading | Fake Windows update name | `windows-server-v1.9.4.8.exe` |
 | 🔑 **Credential Access** | T1552.001 Unsecured Credentials | AWS keys stolen | `~/.aws/credentials` |
-| 🔍 **Discovery** | T1083 File Discovery | File system enumeration | Keywords: "aws", "credentials" |
-| 🔍 **Discovery** | T1082 System Discovery | System reconnaissance | OS, software, privileges |
+| 🔍 **Discovery** | T1083 File Discovery | File system enumeration | Keywords: "aws", /c type credentials command, "credentials" |
+| 🔍 **Discovery** | T1082 System Discovery | System reconnaissance | network discovery, OS, software, privileges|
 | 📦 **Collection** | T1005 Local Data | AWS credentials collected | Developer → production access |
 | 📡 **C2** | T1071.001 Web Protocols | HTTP to Azure VM | Port 8000 (unencrypted) |
 | 📤 **Exfiltration** | T1567.002 Cloud Exfiltration | AWS data theft | 51 days, S3/RDS extraction |
 | 💥 **Impact** | T1530 Cloud Data Access | Unauthorized AWS access | Vendor, client data → dark web |
 
-#### CYBER KILL CHAIN TABLE
+#### CYBER KILL CHAIN Table
 
-![Attack Flow Diagram](images/CyberKillChain.png)
+![Cyber Kill Chain Flow Diagram](images/CyberKillChain.jpg)
 
 ### Key Security Lessons Learned
 
