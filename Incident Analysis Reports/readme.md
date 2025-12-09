@@ -1,14 +1,61 @@
 ## Incident Analysis Reports
 
-Hello, in this area of my portfolio, I present different real-case cyber incident scenarios from various industries (I'll try to keep more AUS case-based ones).  
+Hello, in this area of my portfolio, I present different real-case cyber incident scenarios or simulated from CTFs from various industries (I'll try to keep more AUS case-based ones).  
 Each case provides a walkthrough of **how, when, and what happened**, along with relevant technical and governance details from the study case.  
 I also include **key highlights**, **best practice recommendations**, and **lessons learned** — including my own perspective on what could have been done differently.  
 
 Under **Security Recommendations**, I map my proposed improvements against **local, global, and industry-specific framework standards** to demonstrate practical alignment and governance awareness.
 
 ---
+### Case Scenario : Data Breach on Fleet Routing and Dispatch (FRD) System due to AI-Assisted Coding (simulation from AWSN Incident Response Competition 2025)
 
-### Case Scenario 1: Medibank 2022 Data Breach
+  **Industry:**   Hamartia&Co. (H&C) (fictitious)   
+  **Location:** Australia  
+  **Date:** October 2025  
+  **Impact:** Dark web exposure of H&C sensitive client's data 
+
+  
+---
+
+#### Summary of Incident
+H&C suffered a supply chain compromise when a developer integrated malicious code from a Reddit post into production software. The AI-obfuscated code executed a download-and-execute routine, pulling malware over HTTP port 8000 from an Azure VM—an easily detectable indicator missed due to absent network monitoring. The malware harvested hardcoded AWS credentials from the developer workstation, established persistence via scheduled task, and conducted 51 days of undetected cloud data exfiltration. The attack exploited multiple security gaps: no code provenance validation, no EDR on developer systems, no secrets management enforcement, and critically, no AWS CloudTrail or GuardDuty monitoring. Discovery came not from internal detection but from external notification of dark web exposure
+
+--- 
+
+#### MITRE ATT&CK Mapping - H&C Data Breach
+
+| Tactic | Technique | Description | Evidence/IoC |
+|--------|-----------|-------------|----------|
+| 🎯 **Initial Access** | T1195.002 Supply Chain Compromise | AI-obfuscated code in Fleet Routing System | `timestamp_formatter.js` - base64 encoded array |
+| ⚡ **Execution** | T1204.002 User Execution | Auto-execution during deployment | 8 Oct 2025, 05:12:43 UTC |
+| ⚡ **Execution** | T1059.007 JavaScript Interpreter | Node.js download-execute | `["fs","https","createWriteStream","exec"]` |
+| ⚡ **Execution** | T1105 Ingress Tool Transfer | Downloaded from Azure VM | `media-ads-network[.]australiaeast[.]cloudapp[.]azure[.]com:8000` |
+| 🔁 **Persistence** | T1053.005 Scheduled Task | Maintained access via task | TaskName: `WinUpdate64x86` |
+| 🛡️ **Defense Evasion** | T1027.010 Command Obfuscation | AI-generated obfuscation | Base64: `var data=[...]` |
+| 🛡️ **Defense Evasion** | T1036.005 Masquerading | Fake Windows update name | `windows-server-v1.9.4.8.exe` |
+| 🔑 **Credential Access** | T1552.001 Unsecured Credentials | AWS keys stolen | `~/.aws/credentials` |
+| 🔍 **Discovery** | T1083 File Discovery | File system enumeration | Keywords: "aws", "credentials" |
+| 🔍 **Discovery** | T1082 System Discovery | System reconnaissance | OS, software, privileges |
+| 📦 **Collection** | T1005 Local Data | AWS credentials collected | Developer → production access |
+| 📡 **C2** | T1071.001 Web Protocols | HTTP to Azure VM | Port 8000 (unencrypted) |
+| 📤 **Exfiltration** | T1567.002 Cloud Exfiltration | AWS data theft | 51 days, S3/RDS extraction |
+| 💥 **Impact** | T1530 Cloud Data Access | Unauthorized AWS access | Vendor, client data → dark web |
+
+### Key Security Lessons Learned
+
+- **Never Trust External Code Blindly:** Always validate, understand, and rewrite external code. Implement code provenance tracking and test in a sandbox before passing to prod enviroment
+- **Developer Workstations = Crown Jewels:** Treat dev systems as Tier 0 assets (like Domain Controllers). Production credentials on dev workstations = game over
+- **Credential Security Is Non-Negotiable:** Hardcoded credentials = catastrophic failure. Secrets management is security, not convenience
+- **Cloud Requires Different Detection:** Legitimate credentials doing illegitimate things = hardest problem. CloudTrail + GuardDuty + UEBA = minimum requirement
+- **Detection > Prevention**
+- **AI Changes Everything:** Traditional controls fail against AI-generated obfuscation. Arms race requires AI-powered defense
+- **Opportunistic Attacks Are Scalable**
+  - One Reddit post can compromise unlimited organisations
+  - Watering hole attacks don't require targeting
+  - Your developers ARE the attack surface
+
+---
+### Case Scenario : Medibank 2022 Data Breach
 
 📄 [Cyber Incident Review – Medibank 2022](./documents/CyberIncReview_Medibank2022.pdf)
 
@@ -68,14 +115,11 @@ Below is the mapping of Medibank’s identified gaps to the **Australian Essenti
 
 ---
 
-
 #### Lessons Learned
 - **Third-party risk must be treated as internal risk** : Third parties are part of every business, even in something as simple as selling burgers. You need to make sure your providers meet at least a minimal standard of control: the bread isn’t expired, the meat is safe to eat, and, most importantly, if the third party is the cook, they are trained to deliver a high-standard product. Your reputation depends on it. The same principle applies in cyber. Suppliers providing critical services and managing sensitive data must meet or exceed the organisation’s security posture, and especially when they are part of daily business operations, they must be treated as part of the organisation itself under the same strict and regulated standard
 - **Zero Trust isn’t just a pretty word** — Do not trust, always verify is the phrase, and yes, some times it could be annoyed to validate your identity multiple times but assume breach and verify continuously.  
 - **Security culture** : is as important as technical controls,policy, awareness, and behaviour form the foundation, organisations must transmit not just restrict or adopt a fearing approach, people working whitin and around the business must understand how their functions, responsabilities and the secure culture are aligned eachother.
 
----
-### Case Scenario 2 ... soon
 
 ---
 💬 **Feedback or questions?**
