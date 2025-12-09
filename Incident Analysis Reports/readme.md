@@ -41,6 +41,10 @@ H&C suffered a supply chain compromise when a developer integrated malicious cod
 | 📤 **Exfiltration** | T1567.002 Cloud Exfiltration | AWS data theft | 51 days, S3/RDS extraction |
 | 💥 **Impact** | T1530 Cloud Data Access | Unauthorized AWS access | Vendor, client data → dark web |
 
+#### CYBER KILL CHAIN TABLE
+
+![Attack Flow Diagram](images/CyberKillChain.png)
+
 ### Key Security Lessons Learned
 
 - **Never Trust External Code Blindly:** Always validate, understand, and rewrite external code. Implement code provenance tracking and test in a sandbox before passing to prod enviroment
